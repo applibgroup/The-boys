@@ -462,6 +462,50 @@ class VerbalExpression extends RegExp {
 
         return new RegExp(pattern, flags);
     }
+
+    /**
+     * Performs a zero-width positive lookahead assertion match
+     * @param {(string|RegExp|number)} value value or expression to look for
+     * @returns {VerbalExpression} recompiled instance of VerbalExpression
+     * @memberof VerbalExpression
+     */
+    positiveLookAhead(value) {
+        value = VerbalExpression.sanitize(value);
+        return this.add(`(?=${value})`);
+    }
+
+    /**
+     * Performs a zero-width negative lookahead assertion match
+     * @param {(string|RegExp|number)} value value or expression to look for
+     * @returns {VerbalExpression} recompiled instance of VerbalExpression
+     * @memberof VerbalExpression
+     */
+    negativeLookAhead(value) {
+        value = VerbalExpression.sanitize(value);
+        return this.add(`(?!${value})`);
+    }
+
+    /**
+     * Performs a zero-width positive lookbehind assertion match
+     * @param {(string|RegExp|number)} value value or expression to look for
+     * @returns {VerbalExpression} recompiled instance of VerbalExpression
+     * @memberof VerbalExpression
+     */
+    positiveLookBehind(value) {
+        value = VerbalExpression.sanitize(value);
+        return this.add(`(?<=${value})`);
+    }
+
+    /**
+     * Performs a zero-width negative lookbehind assertion match
+     * @param {(string|RegExp|number)} value value or expression to look for
+     * @returns {VerbalExpression} recompiled instance of VerbalExpression
+     * @memberof VerbalExpression
+     */
+    negativeLookBehind(value) {
+        value = VerbalExpression.sanitize(value);
+        return this.add(`(?<!${value})`)
+    }
 }
 export default function VerEx() { // eslint-disable-line no-unused-vars
     const instance = new VerbalExpression();
