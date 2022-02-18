@@ -101,7 +101,7 @@ class VerbalExpression extends RegExp {
 
     /**
      * Alias for then() to allow for readable syntax when then() is the first method in the chain.
-     * @param {(string|RegExp|numer)} value value to find
+     * @param {(string|RegExp|number)} value value to find
      * @returns {VerbalExpression} recompiled instance of VerbalExpression
      * @memberof VerbalExpression
      */
